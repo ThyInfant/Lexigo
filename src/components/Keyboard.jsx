@@ -4,7 +4,7 @@ const keys = [
   ["Enter", "Z", "X", "C", "V", "B", "N", "M", "Back"],
 ];
 
-export default function Keyboard() {
+export default function Keyboard({ onKey }) {
   return (
     <div className="space-y-2">
       {keys.map((row, i) => (
@@ -13,6 +13,7 @@ export default function Keyboard() {
             <button
               key={key}
               className="bg-gray-700 px-3 py-2 rounded hover:bg-gray-600"
+              onClick={() => onKey(key)}
             >
               {key}
             </button>
