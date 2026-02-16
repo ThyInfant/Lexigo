@@ -14,3 +14,26 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+Implemented core game functionality and improvements:
+
+- Activated keyboard input: clicking on keys now types letters into the grid.
+- Physical keyboard support: player can type using PC keyboard.
+- Enter / Backspace handling: guesses can be submitted or deleted.
+- Correct guess detection: game ends when player wins or loses.
+- Color feedback for letters:
+  - Green for correct letter in correct position
+  - Yellow for correct letter in wrong position
+  - Gray for letters not in the word
+- Play Again functionality:
+  - Modal popup appears when game ends (win/loss)
+  - Clicking "Play Again" resets the game state
+- Game state management improved:
+  - Lazy initialization of solution word
+  - Attempts, current guess, and guesses array properly tracked
+  - Keyboard key statuses updated according to guesses
+- Error handling for invalid words planned (temporary local word list currently used)
+- Code structured for future enhancements:
+  - API word fetching
+  - Daily challenge mode
+  - Light / Dark mode (UI toggle planned)
