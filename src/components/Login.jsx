@@ -1,0 +1,50 @@
+import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
+
+export default function Login({ onSuccess }) {
+  const { login } = useAuth();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const res = await login(username, password);
+    if (res.success) {
+      onSuccess();
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-gray-800 p-6 rounded-lg w-80 space-y-4"
+      >
+        <h2 className="text-2xl font-bold text-center">Login</h2>
+
+        <input
+          type="text"
+          placeholder="Username"
+          className="w-full p-2 rounded bg-gray-700"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+
+        <input
+          type="password"
+          placeholder="Password"
+          className="w-full p-2 rounded bg-gray-700"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        <button
+          type="submit"
+          className="w-full bg-green-500 p-2 rounded hover:bg-green-600"
+        >
+          Login
+        </button>
+      </form>
+    </div>
+  );
+}

@@ -14,12 +14,14 @@ export default function Menu({ onSelect }) {
       >
         Continue Game
       </button>
-      <button
+      {/* <button
         onClick={() => onSelect("login")}
         className="bg-purple-500 px-6 py-2 rounded hover:bg-purple-600 w-60"
       >
         Create Account / Login
-      </button>
+      </button> */}
+      <button onClick={() => onSelect("auth")}>Create Account / Login</button>
+
       <button
         onClick={() => onSelect("leaderboard")}
         className="bg-yellow-500 px-6 py-2 rounded hover:bg-yellow-600 w-60"
